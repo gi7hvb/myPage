@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktywna strona</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Moja interaktywna strona</h1>
+    
+    <div class="container">
+        <!-- Karta 1: Licznik -->
+        <div class="card">
+            <h2>Licznik</h2>
+            <p id="counter-display">0</p>
+            <div class="btn-group">
+                <button id="przycisk-zwieksz" onclick="addPoint()">Zwiększ</button>
+                <button id="przycisk-reset" onclick="resetCounter()">Resetuj</button>
+            </div>
+        </div>
+
+        <!-- Karta 2: Losowanie -->
+        <div class="card">
+            <h2>Losowanie</h2>
+            <p id="random-display">Kliknij i sprawdź!</p>
+            <button id="przycisk-losuj" onclick="drawItem()">Losuj</button>
+        </div>
+
+        <!-- Karta 3: Widget (Jeden czysty Google Maps - Skierniewice) -->
+                <!-- Karta 3: Widget -->
+        <div class="card">
+            <h2>Widget</h2>
+            <div class="map-box">
+                <!-- TUTAJ WKLEJ SKOPIOWANY Z GOOGLE MAPS ZNACZNIK <iframe ...></iframe> -->
+                 https://maps.app.goo.gl/L84GPeUybcC11xbe8
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Twarz na dole strony: oczy + klikalny nos -->
+    <div class="face-container">
+        <div class="eyes-container">
+            <div class="eye">
+                <div class="pupil"></div>
+            </div>
+            <div class="eye">
+                <div class="pupil"></div>
+            </div>
+        </div>
+        <div id="nose" title="Kliknij mnie!">👃</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

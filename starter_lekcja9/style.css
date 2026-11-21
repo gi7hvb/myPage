@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #eee;
+    text-align: center;
+    padding: 30px 15px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #e94560;
+    font-size: 2.1em;
+}
+
+/* Kontener główny na 3 karty */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Stały, równy wymiar każdej karty */
+.card {
+    background-color: #16213e;
+    border-radius: 12px;
+    padding: 22px;
+    width: 290px;
+    height: 310px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid transparent;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #e94560;
+    box-shadow: 0 10px 25px rgba(233, 69, 96, 0.35);
+}
+
+.card h2 {
+    color: #e94560;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* Wyświetlacze tekstowe */
+#counter-display,
+#random-display {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #0f3460;
+    background-color: #eee;
+    border-radius: 8px;
+    padding: 12px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Przyciski */
+button {
+    position: relative;
+    overflow: hidden;
+    background-color: #e94560;
+    color: #ffffff;
+    border: none;
+    padding: 11px 18px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes zmiana-kolorow {
+    0%   { background-color: #e94560; }
+    25%  { background-color: #9b51e0; }
+    50%  { background-color: #2d9cdb; }
+    75%  { background-color: #27ae60; }
+    100% { background-color: #e94560; }
+}
+
+button:hover {
+    animation: zmiana-kolorow 2s infinite linear;
+    transform: scale(1.05);
+}
+
+.fala-klik {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: rozchodzenie-fali 0.5s linear;
+    pointer-events: none;
+}
+
+@keyframes rozchodzenie-fali {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Kontener na mapę wewnątrz karty Widget */
+.map-box {
+    width: 100%;
+    height: 205px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #0f3460;
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Oczy i nos na dole */
+.face-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+    position: relative;
+}
+
+.eyes-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.eye {
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 4px solid #e94560;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.pupil {
+    width: 26px;
+    height: 26px;
+    background-color: #1a1a2e;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.05s ease-out;
+}
+
+.pupil::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#nose {
+    font-size: 3.3em;
+    margin-top: -10px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.15s ease;
+    z-index: 2;
+}
+
+#nose:hover {
+    transform: scale(1.15);
+}
+
+#nose:active {
+    transform: scale(0.9) rotate(-10deg);
+}
+
+.wylatujaca-koza {
+    position: fixed;
+    font-size: 2.5em;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;
+}
